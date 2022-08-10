@@ -637,3 +637,54 @@ Hello World
 Hi earth
 
 */ 
+
+echo '<hr>';
+
+//substr()  برای حذف یک قسمت از رشته متن استرینگ با طول و پوزیشن موقعیت مدنظر
+
+echo substr("Hello world",0,10)."<br>";
+echo substr("Hello world",1,8)."<br>";
+echo substr("Hello world",0,5)."<br>";
+echo substr("Hello world",6,6)."<br>";
+echo "<br>";
+
+// Negative numbers:
+echo substr("Hello world",0,-1)."<br>";
+echo substr("Hello world",-10,-2)."<br>";
+echo substr("Hello world",0,-6)."<br>";
+
+/* 
+output
+
+Hello worl
+ello wor
+Hello
+world
+
+Hello worl
+ello wor
+Hello
+
+*/ 
+
+echo '<hr>';
+
+//substr_count() میزان تکرار شدن یک کلمه در رشته رو برمیگردونه
+
+$str = "This is nice";
+echo strlen($str)."<br>"; // Using strlen() to return the string length
+echo substr_count($str,"is")."<br>"; // The number of times "is" occurs in the string
+echo substr_count($str,"is",2)."<br>"; // The string is now reduced to "is is nice"
+echo substr_count($str,"is",3)."<br>"; // The string is now reduced to "s is nice"
+echo substr_count($str,"is",3,3)."<br>"; // The string is now reduced to "s i"
+
+/* 
+output
+
+12
+2
+2
+1
+0
+
+*/ 
