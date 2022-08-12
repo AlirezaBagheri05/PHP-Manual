@@ -688,4 +688,66 @@ output
 0
 
 */ 
-//enc of this lesson
+
+echo '<hr>';
+
+//substr_replace() جایگزین کردن کلمه با دادن عدد و موقعیت و طول
+
+echo substr_replace("world","hi",1,4).'<br>';
+echo substr_replace("world","hi",2,0).'<br>';
+echo substr_replace("world","hi",0,-2);
+
+/* 
+output
+
+whi
+wohirld
+hild
+
+*/ 
+
+echo '<hr>';
+
+//ucfirst()حرف اول رو بزرگ میکنه 
+
+echo ucfirst("hello world!");
+
+/* 
+output
+
+Hello world!
+
+*/ 
+
+echo '<hr>';
+
+//ucwords() حرف اول هر کلمه رو یا حرف بعد از هر کاراکتری که تعریف کردیم بزرگ میکنه 
+
+echo ucwords("hello world").'<br>';
+echo ucwords("hello|world", "|");
+
+/* 
+output
+
+Hello World
+Hello|World
+
+*/ 
+
+echo '<hr>';
+
+//wordwrap() از یک رشته به اندازه و طول مشخص جدا و یک خط لاین جدید میسازه 
+
+$str = "An example of a long word is: Supercalifragulistic";
+echo wordwrap($str,15,"<br>\n");
+
+/* 
+output
+
+An example of a
+long word is:
+Supercalifragulistic
+
+*/ 
+
+//it is the end of this lesson and i hope that i can do every thing that i want to do and have .. i love you world!
