@@ -2,6 +2,20 @@
 
 //string//string//string//string//string
 
+
+echo '<hr>';
+
+//xxxx() XX 
+
+//a
+
+/* 
+output
+
+XX
+
+*/ 
+
 // addcslashes(); بین حروف مختلف اسلش می اندازد و جدا میکد و یک رشته را تکه تکه میکند.
 
 $str = "Welcome to z my humble A Homepage!";
