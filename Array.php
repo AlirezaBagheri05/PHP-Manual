@@ -215,16 +215,138 @@ Array ( [c] => blue )
 
 echo '<hr>';
 
-//xxxxx() XX 
+//array_fill() به تعداد مقدار مشخص از یک مقدار اندیس هایی از یک ارایه میسازه 
 
-//a
+$a1=array_fill(3,4,"blue");
+$b1=array_fill(0,1,"red");
+print_r($a1);
+echo "<br>";
+print_r($b1);
 
 /* 
 output
 
-XX
+Array ( [3] => blue [4] => blue [5] => blue [6] => blue )
+Array ( [0] => red )
 
 */
+
+echo '<hr>';
+
+//array_fill_keys() امقدار های یک ارایه را به اندیس های یک ارایه جدید با یک مقدار مشخص میکنه 
+
+$keys=array("a","b","c","d");
+$a1=array_fill_keys($keys,"blue");
+print_r($a1);
+
+/* 
+output
+
+
+Array ( [a] => blue [b] => blue [c] => blue [d] => blue )
+
+*/
+
+echo '<hr>';
+
+//array_flip() جای اندیس با مقدار رو جابه جا میکنه .. مقدار و اندیس یک ارایه رو برعکس و جابهجا میکنه 
+
+$a1=array("a"=>"red","b"=>"green","c"=>"blue","d"=>"yellow");
+$result=array_flip($a1);
+print_r($result);
+
+/* 
+output
+
+Array ( [red] => a [green] => b [blue] => c [yellow] => d )
+
+*/
+
+echo '<hr>';
+
+//array_key_exists() چک کردن برای وجود داشتن اندیس در ارایه 
+
+$a=array("Volvo"=>"XC90","BMW"=>"X5");
+if (array_key_exists("Volvo",$a))
+  {
+  echo "Key exists!";
+  }
+else
+  {
+  echo "Key does not exist!";
+  }
+
+/* 
+output
+
+Key exists!
+
+*/
+
+echo '<hr>';
+
+//array_keys() در اندیس ها جست و جو میکنه و میتونه اندیس های یک ارایه رو در مقدار های ارایه های جدید برگردونه و قادر به جست و جو یک مقدار در اندیس است
+
+$a=array("Volvo"=>"XC90","BMW"=>"X5","Toyota"=>"Highlander");
+print_r(array_keys($a));
+echo '<br>';
+$a=array(10,20,30,"10");
+print_r(array_keys($a,"10",true));
+echo '<br>';
+$a=array(10,20,30,"10");
+print_r(array_keys($a,"10",false));
+
+/* 
+output
+
+Array ( [0] => Volvo [1] => BMW [2] => Toyota )
+Array ( [0] => 3 )
+Array ( [0] => 0 [1] => 3 )
+
+*/
+
+echo '<hr>';
+
+//array_map() مقدار های یک ارایه رو میگیرهو دی یک تابع میریزه و یک عملیات روش انجام میده و سپس یه ارایه جدید میسازه 
+
+function myfunction($num)
+{
+  return($num*$num);
+}
+
+$a=array(1,2,3,4,5);
+print_r(array_map("myfunction",$a));
+
+/* 
+output
+
+Array ( [0] => 1 [1] => 4 [2] => 9 [3] => 16 [4] => 25 )
+
+*/
+
+echo '<hr>';
+
+//array_merge() ترکیب دو ارایه باهم  باهمدیگر
+
+$a1=array("red","green");
+$a2=array("blue","yellow");
+print_r(array_merge($a1,$a2));
+echo '<br>';
+$a=array(3=>"red",4=>"green");
+print_r(array_merge($a));
+echo '<br>';
+$a1=array("a"=>"red","b"=>"green");
+$a2=array("c"=>"blue","b"=>"yellow");
+print_r(array_merge($a1,$a2));
+
+/* 
+output
+
+Array ( [0] => red [1] => green [2] => blue [3] => yellow )
+Array ( [0] => red [1] => green )
+Array ( [a] => red [b] => yellow [c] => blue )
+
+*/  
 
 echo '<hr>';
 
@@ -237,4 +359,4 @@ output
 
 XX
 
-*/
+*/  
