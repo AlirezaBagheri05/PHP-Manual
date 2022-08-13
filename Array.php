@@ -314,13 +314,13 @@ echo '<hr>';
 //array_map() مقدار های یک ارایه رو میگیرهو دی یک تابع میریزه و یک عملیات روش انجام میده
 // و سپس یه ارایه جدید میسازه 
 
-function myfunction($num)
+function myfunction3($num)
 {
   return($num*$num);
 }
 
 $a=array(1,2,3,4,5);
-print_r(array_map("myfunction",$a));
+print_r(array_map("myfunction3",$a));
 
 /* 
 output
@@ -418,6 +418,346 @@ $a=array("red","green","blue");
 $b=array_pop($a);
 print_r($a);
 echo '<br>'.$b;
+
+/* 
+output
+
+Array ( [0] => red [1] => green )
+blue
+
+*/
+
+echo '<hr>';
+
+//array_shift() مقدار اول یک ارایه رو حذف میکنه و مقدار حذف شده رو برمیگردونه و
+// ارایه جدید رو در ارایه اولیه میریزه 
+
+$a=array("a"=>"red","b"=>"green","c"=>"blue");
+echo array_shift($a)."<br>";
+print_r ($a);
+
+/* 
+output
+
+red
+Array ( [b] => green [c] => blue )
+
+*/
+
+echo '<hr>';
+
+//array_product() امقدار های یک ارایه رو باهم ضرب میکنه و یک عدد برمیگردونه
+// و اگه رشته متنی داخلش باشه صفر برمیگردونه 
+
+$a=array('10',5,2);
+echo(array_product($a));
+
+/* 
+output
+
+100
+
+*/
+
+echo '<hr>';
+
+//array_sum() مقدار های یک ارایه رو باهم جمع میکنه 
+
+$a=array(5,15,25);
+echo array_sum($a);
+
+/* 
+output
+
+45
+
+*/
+
+echo '<hr>';
+
+//array_push() به انتهای ارایه مقدار را اضافه میکنه 
+
+$a=array("red","green");
+array_push($a,"blue","yellow");
+print_r($a);
+
+/* 
+output
+
+Array ( [0] => red [1] => green [2] => blue [3] => yellow )
+
+*/
+
+echo '<hr>';
+
+//array_rand() بصورت تصادفی و رندوم اندیس هاس یک ارایه  رو  در یک رایه جدید
+// با تعداد مشخص مدمنظر میریزه
+
+$a=array("a"=>"red","b"=>"green","c"=>"blue","d"=>"yellow");
+$random_keys = array_rand($a,3);
+print_r($random_keys);
+echo "<br>".$a[$random_keys[0]]."<br>";
+echo $a[$random_keys[1]]."<br>";
+echo $a[$random_keys[2]];
+
+/* 
+output
+
+Array ( [0] => a [1] => b [2] => d )
+red
+green
+yellow
+
+*/
+
+echo '<hr>';
+
+//array_reverse() مقدارهای یک ارایه رو برعکس و معکوس میکنه 
+
+$a=array("Volvo",'us'=>"XC90",'me'=>"BMW","Toyota");
+$reverse=array_reverse($a);
+$preserve=array_reverse($a,true);
+
+print_r($a);
+echo "<br>";
+print_r($reverse);
+echo "<br>";
+print_r($preserve);
+
+/* 
+output
+
+Array ( [0] => Volvo [us] => XC90 [me] => BMW [1] => Toyota )
+Array ( [0] => Toyota [me] => BMW [us] => XC90 [1] => Volvo )
+Array ( [1] => Toyota [me] => BMW [us] => XC90 [0] => Volvo )
+
+*/
+
+echo '<hr>';
+
+//array_search()  در مقدار های ارایه جست و جو میکنه و اندیس مقدار سرچ شده رو برمیگردونه 
+
+$a=array("a"=>"5","b"=>5,"c"=>"5");
+echo array_search(5,$a,false);
+echo '<br>';
+echo array_search(5,$a,true);
+
+/* 
+output
+
+a
+b
+
+*/
+
+echo '<hr>';
+
+//array_slice() یک مقدار مشخص از یک ارایه رو با طول و موقعیت مشخص برمیگردونه و به عبارتی 
+// میتونه مقداری از ارایه رو حذف و پاک کنه  
+
+$a=array("red","green","blue","yellow","brown");
+print_r(array_slice($a,2));
+echo '<br>';
+$a=array("red","green","blue","yellow","brown");
+print_r(array_slice($a,1,2));
+echo '<br>';
+$a=array("red","green","blue","yellow","brown");
+print_r(array_slice($a,-2,2,true));
+
+/* 
+output
+
+Array ( [0] => blue [1] => yellow [2] => brown )
+Array ( [0] => green [1] => blue )
+Array ( [3] => yellow [4] => brown )
+
+*/
+
+echo '<hr>';
+
+//array_splice() مقدار مشابه رو جایگزین ارایه اولی میکنه  
+
+$a1=array("a"=>"red","b"=>"green","c"=>"blue","d"=>"yellow");
+$a2=array("a"=>"purple","b"=>"orange");
+array_splice($a1,1,0,$a2);
+print_r($a1);
+echo '<br>';
+$a1=array("a"=>"red","b"=>"green","c"=>"blue","d"=>"yellow");
+$a2=array("a"=>"purple","b"=>"orange");
+array_splice($a1,0,2,$a2);
+print_r($a1);
+// array_splice(array, start, length, array)
+
+/* 
+output
+
+Array ( [a] => red [0] => purple [1] => orange [b] => green [c] => blue [d] => yellow )
+Array ( [0] => purple [1] => orange [c] => blue [d] => yellow )
+
+*/
+
+echo '<hr>';
+
+//array_udiff_assoc() مقدار های تفاوت متفاوت بین ارایه اول با دیگر ارایه ها رو برمیگردونه 
+
+function myfunction4($a,$b)
+{
+if ($a===$b)
+  {
+  return 0;
+  }
+  return ($a>$b)?1:-1;
+}
+
+$a1=array("a"=>"red","b"=>"green","c"=>"blue","white");
+$a2=array("A"=>"red","b"=>"GREEN","yellow","black");
+$a3=array("a"=>"green","b"=>"red","yellow","blue");
+
+$result=array_udiff($a1,$a2,$a3,"myfunction4");
+print_r($result);//Array ( [0] => white )
+
+echo '<br>';
+
+function myfunction5($a,$b)
+{
+if ($a===$b)
+  {
+  return 0;
+  }
+  return ($a>$b)?1:-1;
+}
+
+$a1=array("0"=>"red","1"=>"green","2"=>"blue");
+$a2=array("0"=>"red","1"=>"blue","2"=>"green");
+
+$result=array_udiff_assoc($a1,$a2,"myfunction5");
+print_r($result);//Array ( [1] => green [2] => blue )
+
+echo '<br>';
+
+function myfunction_key($a,$b)
+{
+if ($a===$b)
+  {
+  return 0;
+  }
+  return ($a>$b)?1:-1;
+}
+
+function myfunction_value($a,$b)
+{
+if ($a===$b)
+  {
+  return 0;
+  }
+  return ($a>$b)?1:-1;
+}
+
+$a1=array("a"=>"red","b"=>"green","c"=>"blue");
+$a2=array("a"=>"red","s"=>"green","c"=>"green");
+
+$result=array_udiff_uassoc($a1,$a2,"myfunction_value","myfunction_key");
+print_r($result);//Array ( [b] => green [c] => blue )
+
+/* 
+output
+
+Array ( [0] => white )
+Array ( [1] => green [2] => blue )
+Array ( [b] => green [c] => blue )
+
+*/
+
+echo '<hr>';
+
+//array_uintersect() مقدار های مشابه متشابه شباهت بین ارایه اول با دیگر ارایه ها رو برمیگردونه 
+
+function myfunction6($a,$b)
+{
+if ($a===$b)
+  {
+  return 0;
+  }
+  return ($a>$b)?1:-1;
+}
+
+$a1=array("a"=>"red","b"=>"green","c"=>"blue","yellow");
+$a2=array("A"=>"red","b"=>"GREEN","yellow","black");
+$a3=array("a"=>"green","b"=>"red","yellow","black");
+
+$result=array_uintersect($a1,$a2,$a3,"myfunction6");
+print_r($result);
+
+echo '<br>';
+
+function myfunction7($a,$b)
+{
+if ($a===$b)
+  {
+  return 0;
+  }
+  return ($a>$b)?1:-1;
+}
+
+$a1=array("a"=>"red","b"=>"green","c"=>"blue");
+$a2=array("a"=>"red","b"=>"blue","d"=>"blue");
+
+$result=array_uintersect_assoc($a1,$a2,"myfunction7");
+print_r($result);
+
+echo '<br>';
+
+function myfunction_key1($a,$b)
+{
+if ($a===$b)
+  {
+  return 0;
+  }
+  return ($a>$b)?1:-1;
+}
+
+function myfunction_value1($a,$b)
+{
+if ($a===$b)
+  {
+  return 0;
+  }
+  return ($a>$b)?1:-1;
+}
+
+$a1=array("a"=>"red","b"=>"green","c"=>"blue");
+$a2=array("a"=>"red","c"=>"blue","f"=>"green");
+
+$result=array_uintersect_uassoc($a1,$a2,"myfunction_key1","myfunction_value1");
+print_r($result);
+
+/* 
+output
+
+Array ( [a] => red [0] => yellow )
+Array ( [a] => red )
+
+*/
+
+echo '<hr>';
+
+//array_unique() مقدار تکراری و متشابه در یک ارایه رو حذف و پاک میکنه 
+
+$a=array("a"=>"red","b"=>"green","c"=>"red");
+print_r(array_unique($a));
+
+/* 
+output
+
+Array ( [a] => red [b] => green )
+
+*/
+
+echo '<hr>';
+
+//xxxxx() XX 
+
+//a
 
 /* 
 output
