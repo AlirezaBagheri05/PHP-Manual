@@ -350,6 +350,84 @@ Array ( [a] => red [b] => yellow [c] => blue )
 
 echo '<hr>';
 
+//array_merge_recursive() ترکیب دو ارایه باهم بصورت پیشرفته و در خروجی یک ارایه جدید برمیگردونه با ترکیب ان  دو ارایه اولیه 
+
+$a1=array("a"=>"red","b"=>"green");
+$a2=array("c"=>"blue","b"=>"yellow");
+print_r(array_merge_recursive($a1,$a2));
+
+/* 
+output
+
+Array ( [a] => red [b] => Array ( [0] => green [1] => yellow ) [c] => blue )
+
+*/
+
+echo '<hr>';
+
+//array_multisort() به ترتیب حروف الفبا ارایه رو میچینه و در ارایه جدیدی برمیگردونه 
+
+$a=array("Dog","Cat","Horse","Bear","Zebra");
+array_multisort($a);
+print_r($a);
+echo '<br>';
+$a1=array("Dog","Dog","Cat");
+$a2=array("Pluto","Fido","ali");
+array_multisort($a1,SORT_ASC,$a2,SORT_DESC);
+print_r($a1);
+echo '<br>';
+print_r($a2);
+
+/* 
+output
+
+Array ( [0] => Bear [1] => Cat [2] => Dog [3] => Horse [4] => Zebra )
+Array ( [0] => Cat [1] => Dog [2] => Dog )
+Array ( [0] => ali [1] => Pluto [2] => Fido )
+
+*/
+
+echo '<hr>';
+
+//xxxxx() XX 
+
+//a
+
+/* 
+output
+
+XX
+
+*/
+
+echo '<hr>';
+
+//xxxxx() XX 
+
+//a
+
+/* 
+output
+
+XX
+
+*/
+
+echo '<hr>';
+
+//xxxxx() XX 
+
+//a
+
+/* 
+output
+
+XX
+
+*/
+
+echo '<hr>';
+
 //xxxxx() XX 
 
 //a
