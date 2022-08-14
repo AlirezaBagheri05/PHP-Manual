@@ -151,7 +151,7 @@ output
 
 echo '<hr>';
 
-// explode(); ساخت یک ارابه از یک رشته | یک متن | استرینگ با یک حرف یا کاراکتر خاص
+// explode(); ساخت یک ارایه از یک رشته | یک متن | استرینگ با یک حرف یا کاراکتر خاص
 
 $str = "Hello world. It's a beautiful day.";
 print_r (explode(" ",$str));
